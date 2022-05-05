@@ -134,12 +134,12 @@ def pregunta_03():
     pipeline = Pipeline(
         steps=[
             ("oneHotEncoder",OneHotEncoder()),
-            ("logisticRegression", LogisticRegressionCV(Cs=10,fit_intercept=False)),
+            ("logisticRegression", LogisticRegressionCV(Cs=10)),
         ],
     )
 
     # Entrene el pipeline con los datos de entrenamiento.
-    pipeline.fit(X_train, y_train)
+    pipeline.fit(X_train, y_train).round(6)
 
     # Retorne el pipeline entrenado
     return pipeline
