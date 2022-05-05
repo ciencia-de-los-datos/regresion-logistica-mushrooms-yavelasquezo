@@ -139,7 +139,7 @@ def pregunta_03():
     )
 
     # Entrene el pipeline con los datos de entrenamiento.
-    pipeline.fit(X_train, y_train).round(6)
+    pipeline.score(X_train, y_train).round(6)
 
     # Retorne el pipeline entrenado
     return pipeline
