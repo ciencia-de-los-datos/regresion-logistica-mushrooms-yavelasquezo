@@ -120,7 +120,7 @@ def pregunta_03():
     """
 
     # Importe LogisticRegressionCV
-    from sklearn.linear_model import LogisticRegressionCV
+    from sklearn.linear_model import LogisticRegression, LogisticRegressionCV
     # Importe OneHotEncoder
     from sklearn.preprocessing import OneHotEncoder
     # Importe Pipeline
@@ -134,12 +134,12 @@ def pregunta_03():
     pipeline = Pipeline(
         steps=[
             ("oneHotEncoder",OneHotEncoder()),
-            ("logisticRegression", LogisticRegressionCV(Cs=10)),
+            ("logisticRegression", LogisticRegressionCV(Cs=10, random_state=0)),
         ],
     )
 
     # Entrene el pipeline con los datos de entrenamiento.
-    pipeline.score(X_train, y_train).round(6)
+    pipeline.fit(X_train, y_train)
 
     # Retorne el pipeline entrenado
     return pipeline
